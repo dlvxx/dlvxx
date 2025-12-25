@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊 - THE BLUE REALM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --blood-color: #00008b;
+            --dark-blood: #000050;
+            --glow-color: #0000ff;
+            --dark-bg: #00000a;
+            --text-color: #0000cc;
+            --secondary-text: #000099;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Creepster', cursive, sans-serif;
+            background: #000000;
+            color: var(--text-color);
+            text-align: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .header {
+            padding: 30px 10px;
+            position: relative;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+        }
+
+        .header h1 {
+            font-size: 4rem;
+            font-weight: normal;
+            color: #0000ff;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #0000ff, 0 0 20px #0000ff, 0 0 30px #0000ff;
+        }
+
+        .header h2 {
+            font-size: 1.5rem;
+            color: #0000cc;
+            text-shadow: 0 0 5px #0000ff;
+            font-style: italic;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            border: 3px solid var(--blood-color);
+            box-shadow: 0 0 20px var(--glow-color), 0 0 40px var(--glow-color);
+            padding: 5px;
+            overflow: hidden;
+            position: relative;
+            filter: hue-rotate(240deg) contrast(150%) brightness(70%) grayscale(30%);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            filter: sepia(100%) hue-rotate(240deg) contrast(150%) brightness(70%) grayscale(20%);
+        }
+
+        .section {
+            background: rgba(0, 0, 10, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            box-shadow: 
+                0 0 20px rgba(0, 0, 255, 0.5),
+                inset 0 0 20px rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--blood-color);
+            max-width: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blood-color), var(--glow-color), var(--blood-color), transparent);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .section:hover {
+            box-shadow: 
+                0 0 30px rgba(0, 0, 255, 0.7),
+                inset 0 0 30px rgba(0, 0, 255, 0.2);
+        }
+
+        .section-title {
+            color: var(--glow-color);
+            margin-bottom: 25px;
+            font-size: 2rem;
+            text-shadow: 0 0 10px var(--glow-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--blood-color), var(--glow-color), var(--blood-color), transparent);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .app-button, .site-button, .next-button, .custom-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 50, 0.8), rgba(0, 0, 30, 0.9));
+            border: 2px solid var(--blood-color);
+            border-radius: 10px;
+            padding: 18px 25px;
+            margin: 20px auto;
+            text-decoration: none;
+            color: #ccccff;
+            width: 95%;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #000;
+            box-shadow: 
+                0 4px 0 var(--dark-blood),
+                0 0 10px rgba(0, 0, 255, 0.5),
+                inset 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: all 0.2s ease;
+        }
+
+        .app-button:hover, .site-button:hover, .next-button:hover, .custom-button:hover {
+            background: 
+                linear-gradient(135deg, rgba(0, 0, 139, 0.8), rgba(0, 0, 80, 0.9));
+            color: #ffffff;
+            box-shadow: 
+                0 2px 0 var(--dark-blood),
+                0 0 20px var(--glow-color),
+                inset 0 0 20px rgba(0, 0, 255, 0.3);
+            border-color: #0000ff;
+            transform: translateY(2px);
+        }
+
+        .button-icon {
+            font-size: 1.8rem;
+            filter: drop-shadow(0 0 3px #0000ff);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            margin: 40px 0 20px;
+            font-weight: bold;
+            color: var(--blood-color);
+            text-shadow: 0 0 10px var(--glow-color);
+            padding: 20px;
+            border-top: 2px solid rgba(0, 0, 139, 0.5);
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--blood-color), var(--glow-color), var(--blood-color), transparent);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            color: #ccccff;
+            font-size: 2rem;
+            position: relative;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 139, 0.3);
+            border: 2px solid rgba(0, 0, 139, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+            text-shadow: 0 0 5px #000;
+            transition: all 0.2s ease;
+        }
+
+        .social-icon:hover {
+            color: #ffffff;
+            background: rgba(0, 0, 255, 0.3);
+            border-color: var(--glow-color);
+            box-shadow: 0 0 20px var(--glow-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            font-family: 'Creepster', cursive;
+        }
+
+        .modal-content {
+            background: rgba(0, 0, 10, 0.95);
+            border: 3px solid var(--blood-color);
+            box-shadow: 
+                0 0 30px var(--glow-color),
+                inset 0 0 30px rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            color: #ccccff;
+            width: 400px;
+            position: relative;
+            text-shadow: 0 0 5px #000;
+        }
+
+        .modal-header {
+            color: var(--glow-color);
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: normal;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px var(--glow-color);
+            position: relative;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .modal-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--blood-color), var(--glow-color), var(--blood-color), transparent);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .modal-input, .input-field {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 25px;
+            border: 2px solid var(--blood-color);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ccccff;
+            text-align: center;
+            font-size: 18px;
+            outline: none;
+            font-family: 'Creepster', cursive;
+            text-shadow: 0 0 5px #000;
+            box-shadow: 
+                0 0 10px rgba(0, 0, 255, 0.3),
+                inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-input:focus, .input-field:focus {
+            box-shadow: 
+                0 0 20px var(--glow-color),
+                inset 0 0 20px rgba(0, 0, 0, 0.7);
+            border-color: var(--glow-color);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-button {
+            padding: 16px 30px;
+            background: linear-gradient(135deg, rgba(0, 0, 139, 0.8), rgba(0, 0, 80, 0.9));
+            color: #ccccff;
+            border: 2px solid var(--blood-color);
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 5px #000;
+            box-shadow: 
+                0 4px 0 var(--dark-blood),
+                0 0 10px rgba(0, 0, 255, 0.5),
+                inset 0 0 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Creepster', cursive;
+            transition: all 0.2s ease;
+        }
+
+        .modal-button:hover {
+            background: linear-gradient(135deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 139, 0.9));
+            box-shadow: 
+                0 2px 0 var(--dark-blood),
+                0 0 20px var(--glow-color),
+                inset 0 0 20px rgba(0, 0, 255, 0.3);
+            transform: translateY(2px);
+            border-color: var(--glow-color);
+        }
+
+        .error-message {
+            color: #6b6bff;
+            margin-top: 20px;
+            font-size: 16px;
+            display: none;
+            text-shadow: 0 0 5px #000, 0 0 10px #0000ff;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ccccff;
+            font-size: 28px;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(0, 0, 139, 0.3);
+            text-shadow: 0 0 5px #000;
+            transition: all 0.2s ease;
+        }
+
+        .close-modal:hover {
+            color: var(--glow-color);
+            background: rgba(0, 0, 255, 0.3);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 139, 0.3);
+            border: 2px solid var(--blood-color);
+            border-radius: 10px;
+            padding: 12px 25px;
+            margin-top: 25px;
+            color: #ccccff;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #000;
+            box-shadow: 
+                0 4px 0 var(--dark-blood),
+                0 0 10px rgba(0, 0, 255, 0.3);
+            font-family: 'Creepster', cursive;
+            transition: all 0.2s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(0, 0, 255, 0.3);
+            box-shadow: 
+                0 2px 0 var(--dark-blood),
+                0 0 15px var(--glow-color);
+            border-color: var(--glow-color);
+            transform: translateX(-5px) translateY(2px);
+        }
+
+        .password-hint {
+            font-size: 14px;
+            color: var(--secondary-text);
+            margin-top: 15px;
+            font-style: italic;
+            text-shadow: 0 0 5px #000;
+        }
+
+        .input-group {
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            .header h2 {
+                font-size: 1.2rem;
+            }
+            .section {
+                padding: 25px 20px;
+                margin: 25px auto;
+            }
+            .app-button, .site-button, .next-button, .custom-button {
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+            .logo {
+                width: 130px;
+                height: 130px;
+            }
+            .modal-content {
+                width: 90%;
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            .header h2 {
+                font-size: 1rem;
+            }
+            .section {
+                padding: 20px 15px;
+            }
+            .app-button, .site-button, .next-button, .custom-button {
+                padding: 14px 18px;
+                font-size: 0.9rem;
+            }
+            .logo {
+                width: 110px;
+                height: 110px;
+            }
+            .social-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://files.catbox.moe/ylu8gh.jpeg" alt="𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊">
+            </div>
+            <h1>𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊</h1>
+            <h2>𝐒𝐈𝐌𝐁𝐀 𝐒𝐈𝐑 𝐓𝐍𝟑𝐒 𝐀𝐖𝐋𝐃𝐈</h2>
+            <h3>𝐃𝐥𝐯𝐗𝐱 𝟕𝐖𝐀𝐊</h3>
+        </div>
+
+        <div class="section" id="page1">
+            <h3 class="section-title">SUPPORT</h3>
+            <a href="https://wa.me/+212642568544" class="app-button" target="_blank">
+                <i class="fab fa-whatsapp button-icon"></i> WHATSAPP
+            </a>
+            <a href="https://t.me/𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊" class="app-button" target="_blank">
+                <i class="fab fa-telegram button-icon"></i> TELEGRAM
+            </a>
+            <a href="https://instagram.com/" class="app-button" target="_blank">
+                <i class="fab fa-instagram button-icon"></i> INSTAGRAM
+            </a>
+            
+            <h3 class="section-title" style="margin-top: 40px;">XETRS</h3>
+            <button class="next-button" onclick="showIosPasswordModal()">
+                <i class="fa-brands fa-apple"></i> IOS XIT
+            </button>
+            <button class="next-button" onclick="showAndroidPasswordModal()">
+                <i class="fa-brands fa-android"></i> ANDROID XIT
+            </button>
+            <button class="next-button" onclick="showPcPasswordModal()">
+                <i class="fa-solid fa-download"></i> E-SIGN 
+            </button>
+            <button class="next-button" onclick="showSupportPasswordModal()">
+                <i class="fa-solid fa-info"></i> THINGS
+            </button>
+        </div>
+
+        <div class="section hidden" id="page2">
+            <h3 class="section-title">IOS</h3>
+            <button class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> RETURN TO DARKNESS
+            </button>
+        </div>
+
+        <div class="section hidden" id="page3">
+            <h3 class="section-title">ANDROID TERRORS</h3>
+            <button class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> RETURN TO DARKNESS
+            </button>
+        </div>
+
+        <div class="section hidden" id="page4">
+            <h3 class="section-title">ESIGN</h3>
+            <a href="https://xipa.me/stores/Blakzetxxv/apps/download/85841" class="site-button"><i class="fa-solid fa-file-signature"></i> E-SIGN TOOL</a>
+            <a href="https://www.mediafire.com/file/817gxh3pl4tc6it/Certificate.zip/file" class="site-button"><i class="fa-solid fa-file"></i> CERTIFICATE</a>
+            
+            <button class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> RETURN TO DARKNESS
+            </button>
+        </div>
+
+        <div class="section hidden" id="page5">
+            <h3 class="section-title">THINGS</h3>
+            <button class="custom-button" onclick="showCustomModal()">
+                <i class="fa-solid fa-skull"></i> DANCES
+            </button>
+            
+            <button class="back-button" onclick="goBack()">
+                <i class="fas fa-arrow-left"></i> RETURN TO DARKNESS
+            </button>
+        </div>
+
+        <div class="footer">
+           @𝐁𝐲  𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊 | <span id="current-year">2023</span>
+            
+            <div class="social-links">
+                <a href="https://wa.me/+212642568544" class="social-icon" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊" class="social-icon" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://instagram.com/" class="social-icon" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="iosPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeIosPasswordModal()">&times;</span>
+            <h2 class="modal-header">IOS PASSWORD</h2>
+            <input type="password" id="iosPasswordInput" class="modal-input" placeholder="PASSWORD..." onkeypress="handleIosKeyPress(event)">
+            <button class="modal-button" onclick="checkIosPassword()">ENTER</button>
+            <p id="iosErrorMessage" class="error-message">
+                ❌ 𝐃𝐥𝐯𝐗𝐱 𝐀𝐘𝟕𝐖𝐈𝐊
+            </p>
+            <p class="password-hint">𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊</p>
+        </div>
+    </div>
+
+    <div id="androidPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAndroidPasswordModal()">&times;</span>
+            <h2 class="modal-header">ANDROID PASSWORD</h2>
+            <input type="password" id="androidPasswordInput" class="modal-input" placeholder="PASSWORD..." onkeypress="handleAndroidKeyPress(event)">
+            <button class="modal-button" onclick="checkAndroidPassword()">ENTER</button>
+            <p id="androidErrorMessage" class="error-message">
+                ❌ 𝐃𝐥𝐯𝐗𝐱 𝐀𝐘𝟕𝐖𝐈𝐊
+            </p>
+            <p class="password-hint">𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊</p>
+        </div>
+    </div>
+
+    <div id="pcPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePcPasswordModal()">&times;</span>
+            <h2 class="modal-header">ESIGN PASSWORD</h2>
+            <input type="password" id="pcPasswordInput" class="modal-input" placeholder="PASSWORD..." onkeypress="handlePcKeyPress(event)">
+            <button class="modal-button" onclick="checkPcPassword()">ENTER</button>
+            <p id="pcErrorMessage" class="error-message">
+                ❌ 𝐃𝐥𝐯𝐗𝐱 𝐀𝐘𝟕𝐖𝐈𝐊
+            </p>
+            <p class="password-hint">𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊</p>
+        </div>
+    </div>
+
+    <div id="supportPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeSupportPasswordModal()">&times;</span>
+            <h2 class="modal-header">THINGS PASSWORD</h2>
+            <input type="password" id="supportPasswordInput" class="modal-input" placeholder="PASSWORD..." onkeypress="handleSupportKeyPress(event)">
+            <button class="modal-button" onclick="checkSupportPassword()">ENTER</button>
+            <p id="supportErrorMessage" class="error-message">
+                ❌ 𝐃𝐥𝐯𝐗𝐱 𝐀𝐘𝟕𝐖𝐈𝐊
+            </p>
+            <p class="password-hint">𝐃𝐥𝐯𝐗𝐱 𝐙𝐎𝐋𝐃𝐈𝐊</p>
+        </div>
+    </div>
+
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCustomModal()">&times;</span>
+            <h2 class="modal-header">DANCES</h2>
+            
+            <div class="input-group">
+                <input type="text" id="option1" class="input-field" placeholder="Player ID">
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="option2" class="input-field" placeholder="Code Dance">
+            </div>
+            
+            <div class="input-group">
+                <input type="text" id="option3" class="input-field" placeholder="Code Dance">
+            </div>
+            
+            <button class="modal-button" onclick="submitCustomRequest()">
+                <i class="fa-solid fa-skull"></i> CONFIRM REQUEST
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        function showPage(pageId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(pageId).classList.remove('hidden');
+        }
+
+        function goBack() {
+            showPage('page1');
+        }
+
+        function showIosPasswordModal() {
+            document.getElementById('iosPasswordModal').style.display = 'flex';
+            document.getElementById('iosPasswordInput').focus();
+        }
+
+        function closeIosPasswordModal() {
+            document.getElementById('iosPasswordModal').style.display = 'none';
+            document.getElementById('iosPasswordInput').value = '';
+            document.getElementById('iosErrorMessage').style.display = 'none';
+        }
+
+        function handleIosKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkIosPassword();
+            }
+        }
+
+        function checkIosPassword() {
+            const password = document.getElementById('iosPasswordInput').value;
+            if (password === 'DlvXxZOLDIK') {
+                showPage('page2');
+                closeIosPasswordModal();
+            } else {
+                document.getElementById('iosErrorMessage').style.display = 'block';
+            }
+        }
+
+        function showAndroidPasswordModal() {
+            document.getElementById('androidPasswordModal').style.display = 'flex';
+            document.getElementById('androidPasswordInput').focus();
+        }
+
+        function closeAndroidPasswordModal() {
+            document.getElementById('androidPasswordModal').style.display = 'none';
+            document.getElementById('androidPasswordInput').value = '';
+            document.getElementById('androidErrorMessage').style.display = 'none';
+        }
+
+        function handleAndroidKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkAndroidPassword();
+            }
+        }
+
+        function checkAndroidPassword() {
+            const password = document.getElementById('androidPasswordInput').value;
+            if (password === 'DlvXxZOLDIK') {
+                showPage('page3');
+                closeAndroidPasswordModal();
+            } else {
+                document.getElementById('androidErrorMessage').style.display = 'block';
+            }
+        }
+
+        function showPcPasswordModal() {
+            document.getElementById('pcPasswordModal').style.display = 'flex';
+            document.getElementById('pcPasswordInput').focus();
+        }
+
+        function closePcPasswordModal() {
+            document.getElementById('pcPasswordModal').style.display = 'none';
+            document.getElementById('pcPasswordInput').value = '';
+            document.getElementById('pcErrorMessage').style.display = 'none';
+        }
+
+        function handlePcKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkPcPassword();
+            }
+        }
+
+        function checkPcPassword() {
+            const password = document.getElementById('pcPasswordInput').value;
+            if (password === 'DlvXxZOLDIK') {
+                showPage('page4');
+                closePcPasswordModal();
+            } else {
+                document.getElementById('pcErrorMessage').style.display = 'block';
+            }
+        }
+
+        function showSupportPasswordModal() {
+            document.getElementById('supportPasswordModal').style.display = 'flex';
+            document.getElementById('supportPasswordInput').focus();
+        }
+
+        function closeSupportPasswordModal() {
+            document.getElementById('supportPasswordModal').style.display = 'none';
+            document.getElementById('supportPasswordInput').value = '';
+            document.getElementById('supportErrorMessage').style.display = 'none';
+        }
+
+        function handleSupportKeyPress(event) {
+            if (event.key === 'Enter') {
+                checkSupportPassword();
+            }
+        }
+
+        function checkSupportPassword() {
+            const password = document.getElementById('supportPasswordInput').value;
+            if (password === 'DlvXxZOLDIK') {
+                showPage('page5');
+                closeSupportPasswordModal();
+            } else {
+                document.getElementById('supportErrorMessage').style.display = 'block';
+            }
+        }
+
+        function showCustomModal() {
+            document.getElementById('customModal').style.display = 'flex';
+            document.getElementById('option1').focus();
+        }
+
+        function closeCustomModal() {
+            document.getElementById('customModal').style.display = 'none';
+            document.getElementById('option1').value = '';
+            document.getElementById('option2').value = '';
+            document.getElementById('option3').value = '';
+        }
+
+        function submitCustomRequest() {
+            const option1 = document.getElementById('option1').value;
+            const option2 = document.getElementById('option2').value;
+            const option3 = document.getElementById('option3').value;
+            
+            if (option1 || option2 || option3) {
+                alert('Your custom request has been submitted!');
+                closeCustomModal();
+            } else {
+                alert('Please fill at least one option');
+            }
+        }
+
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        };
+    </script>
+</body>
+</html>
